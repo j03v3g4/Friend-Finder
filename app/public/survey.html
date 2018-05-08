@@ -1,53 +1,146 @@
-<!-- // Survey Placeholder
-var survey = [
-  {
-    routeName: "q1",
-    question: "How much do you like ice cream?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q2",
-    question: "How much do you like dogs?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q3",
-    question: "How much do you like cats?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q4",
-    question: "How much do you like cheese?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q5",
-    question: "How much do you like 'Merica?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q6",
-    question: "How much do you like quilts knitted by someone's grandmother?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q7",
-    question: "How much do you like Talib Kweli?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q8",
-    question: "How much do you like apple pie?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q9",
-    question: "How much do you like Winston Churchill?",
-    answer: [1, 2, 3, 4, 5]
-  },
-  {
-    routeName: "q10",
-    question: "How much do you like killer bees?",
-    answer: [1, 2, 3, 4, 5]
-  }
-]; -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1>New Friend Survey</h1>
+    <br>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">About You</h3>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="name" class="form-control" id="name" placeholder="Jaqueese Doe">
+                </div>
+                <div class="form-group">
+                    <p>How much do you like ice cream?</p>
+                    <select class="chosen-select" id="q1">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like dogs?</p>
+                    <select class="chosen-select" id="q2">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like cats?</p>
+                    <select class="chosen-select" id="q3">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like cheese?</p>
+                    <select class="chosen-select" id="q4">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like 'Merica?</p>
+                    <select class="chosen-select" id="q5">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like quilts knitted by someone's grandmother?</p>
+                    <select class="chosen-select" id="q6">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like Talib Kweli?</p>
+                    <select class="chosen-select" id="q7">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like apple pie?</p>
+                    <select class="chosen-select" id="q8">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like Winston Churchill?</p>
+                    <select class="chosen-select" id="q9">
+                        <option value=""></option>
+                        <option value="1">1 (Not at all!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <p>How much do you like killer bees?</p>
+                    <select class="chosen-select" id="q10">
+                        <option value=""></option>
+                        <option value="1">1 (Not at All!)</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5 (So Freakin' Much!)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
