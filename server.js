@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 
 // Router
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routing/apiRoutes")(app);
+require("./routing/htmlRoutes")(app);
 
 // Listener
 app.listen(PORT, function() {

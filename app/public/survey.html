@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like ice cream?</p>
-                    <select class="chosen-select" id="q1">
+                    <select class="answers" id="q1">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like dogs?</p>
-                    <select class="chosen-select" id="q2">
+                    <select class="answers" id="q2">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like cats?</p>
-                    <select class="chosen-select" id="q3">
+                    <select class="answers" id="q3">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like cheese?</p>
-                    <select class="chosen-select" id="q4">
+                    <select class="answers" id="q4">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -72,7 +72,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like 'Merica?</p>
-                    <select class="chosen-select" id="q5">
+                    <select class="answers" id="q5">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like quilts knitted by someone's grandmother?</p>
-                    <select class="chosen-select" id="q6">
+                    <select class="answers" id="q6">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like Talib Kweli?</p>
-                    <select class="chosen-select" id="q7">
+                    <select class="answers" id="q7">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like apple pie?</p>
-                    <select class="chosen-select" id="q8">
+                    <select class="answers" id="q8">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like Winston Churchill?</p>
-                    <select class="chosen-select" id="q9">
+                    <select class="answers" id="q9">
                         <option value=""></option>
                         <option value="1">1 (Not at all!)</option>
                         <option value="2">2</option>
@@ -127,7 +127,7 @@
                 </div>
                 <div class="form-group">
                     <p>How much do you like killer bees?</p>
-                    <select class="chosen-select" id="q10">
+                    <select class="answers" id="q10">
                         <option value=""></option>
                         <option value="1">1 (Not at All!)</option>
                         <option value="2">2</option>
@@ -136,11 +136,89 @@
                         <option value="5">5 (So Freakin' Much!)</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default" id="submit">Submit</button>
             </form>
         </div>
     </div>
-
+    <script type="text/javascript">
+        // Answer Data Script
+        var config = {
+          ".answers": {},
+          ".answers-deselect": {
+            allow_single_deselect: true
+          },
+          ".answers-no-single": {
+            disable_search_threshold: 10
+          },
+          ".answers-no-results": {
+            no_results_text: "Sorry, no results!"
+          },
+          ".answers-width": {
+            width: "95%"
+          }
+        };
+    
+        for (var selector in config) {
+          $(selector).chosen(config[selector]);
+        }
+    
+        // Capture the form inputs
+        $("#submit").on("click", function(event) {
+          event.preventDefault();
+    
+          // Form validation
+          function validateForm() {
+            var isValid = true;
+            $(".form-control").each(function() {
+              if ($(this).val() === "") {
+                isValid = false;
+              }
+            });
+    
+            $(".answers").each(function() {
+    
+              if ($(this).val() === "") {
+                isValid = false;
+              }
+            });
+            return isValid;
+          }
+    
+          // Ensure name is filled in
+          if (validateForm()) {
+            // Create an object for the user"s data
+            var userData = {
+              name: $("#name").val(),
+              scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+              ]
+            };
+    
+            // AJAX post the data to the friends API.
+            $.post("/api/friends", userData, function(data) {
+    
+              // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+              $("#match-name").text(data.name);
+              $("#match-img").attr("src", data.photo);
+    
+              // Show the modal with the best match
+              $("#results-modal").modal("toggle");
+    
+            });
+          } else {
+            alert("We need your name and answers or we can't match you!");
+          }
+        });
+      </script>
 </body>
 
 </html>
